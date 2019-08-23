@@ -10,15 +10,17 @@
   <body>
     <section class="app">
       <div class="app-header">
-        <div class="app-activity">
-          <input
-            class="app-input"
-            type="text"
-            placeholder="Enter an activity"
-          />
-          <div class="app-circle"></div>
-        </div>
+        <input
+        onkeyup="test()"
+          class="app-input"
+          id="input-text"
+          type="text"
+          placeholder="Enter an activity.."
+          value="Miracle"
+        />
+        <button class="app-circle">&MinusPlus;</button>
       </div>
     </section>
   </body>
+  <script src="index.js"></script>
 </html>
