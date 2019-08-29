@@ -25,8 +25,21 @@ const itemlist = [];
 
 function add() {
   let value = document.getElementById("item").value;
-  if (value) addtodoList(value);
+  if (value) {
+    addtodoList(value);
+    document.getElementById("item").value = "";
+  }
 }
+
+function removeItem() {
+  let removeList = this.parentNode.parentNode;
+  let parent = removeList.parentNode;
+  parent.removeChild(removeList);
+}
+
+// function completedItem() {
+//   let com = document.getElementsByClassName
+// }
 
 function addtodoList(text) {
   let list = document.getElementById("todo");
@@ -40,16 +53,19 @@ function addtodoList(text) {
   let remove = document.createElement("button");
   remove.classList.add("remove");
   remove.innerHTML = removeSVG;
+  remove.addEventListener("click", removeItem);
 
   let complete = document.createElement("button");
   complete.classList.add("complete");
   complete.innerHTML = completeSVG;
+  // complete.addEventListener("click", completedItem);
 
   buttons.appendChild(remove);
   buttons.appendChild(complete);
   items.appendChild(buttons);
 
   list.appendChild(items);
+  list.insertBefore(items, list.childNodes[0]);
 }
 
 addItems.addEventListener("Click", add);
