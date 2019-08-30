@@ -37,9 +37,10 @@ function removeItem() {
   parent.removeChild(removeList);
 }
 
-// function completedItem() {
-//   let com = document.getElementsByClassName
-// }
+function completedItem() {
+  let Click = document.createElement("button");
+  Click.classList.add("remove");
+}
 
 function addtodoList(text) {
   let list = document.getElementById("todo");
@@ -58,7 +59,7 @@ function addtodoList(text) {
   let complete = document.createElement("button");
   complete.classList.add("complete");
   complete.innerHTML = completeSVG;
-  // complete.addEventListener("click", completedItem);
+  complete.addEventListener("click", completedItem);
 
   buttons.appendChild(remove);
   buttons.appendChild(complete);
