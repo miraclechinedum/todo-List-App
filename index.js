@@ -1,6 +1,5 @@
 let removeSVG = `<svg
     height="22px"
-    class="fill"
     viewBox="-40 0 427 427.00131"
     width="22px"
     xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +12,7 @@ let removeSVG = `<svg
 
 let completeSVG = `<svg
     height="22px"
-    class="fill"
+    class="fill complete-fill"
     viewBox="0 0 512 512"
     width="22px"
     xmlns="http://www.w3.org/2000/svg"
@@ -35,14 +34,29 @@ function removeItem() {
   let removeList = this.parentNode.parentNode;
   let parent = removeList.parentNode;
   parent.removeChild(removeList);
+  console.log("removeList", removeList);
 }
 
 function completedItem() {
-  let Click = document.createElement("button");
-  Click.classList.add("remove");
+  console.log("Hello!");
+  let items = this.parentNode.parentNode;
+  let parent = items.parentNode;
+  let id = parent.id;
+  console.log("id =", id);
+
+  let target =
+    id === "todo"
+      ? document.getElementById("completed")
+      : document.getElementById("todo");
+
+  console.log("target", target);
+
+  parent.removeChild(items);
+  parent.insertBefore(items, target.childNodes[0]);
 }
 
 function addtodoList(text) {
+  console.log("text 43=", text);
   let list = document.getElementById("todo");
 
   let items = document.createElement("li");

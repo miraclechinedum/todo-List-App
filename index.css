@@ -51,9 +51,11 @@ body {
 
 ul.todo {
   width: 100%;
+  /* border: 3px solid black; */
 }
 
 ul.todo li {
+  /* border: 2px solid red; */
   width: 100%;
   list-style-type: none;
   min-height: 50px;
@@ -63,8 +65,8 @@ ul.todo li {
   text-indent: 10px;
   margin-bottom: 20px;
   /* vertical-align: middle; */
-  /* padding-left: 10px; */
-  /* padding-top: 15px; */
+  padding-left: 10px;
+  padding-top: 15px;
 }
 
 .buttons {
@@ -108,54 +110,66 @@ ul.todo .buttons button.remove svg:hover {
   transition: all 0.2s ease;
 }
 
-ul.todo .buttons button.complete svg {
+ul.todo li .buttons button.complete svg {
   border-radius: 11px;
-  /* border: 1.5px solid #28b79a; */
+  /* border: 1.5px solid #25b99a; */
+}
+
+ul.todo li .buttons button.complete svg.fill {
   fill: #25b99a;
+  /* border: 3px solid red; */
 }
 
-ul.todo#completed .buttons button.complete svg {
-  background: #28b79a;
+#todo svg.fill {
+  fill: #fff;
+}
+
+#todo svg.complete-fill {
+  background: #25b99a;
   border: 0px;
-  /* fill: #28b79a;
-  border: 0px; */
 }
 
-/* ul.todo#completed .buttons button.complete svg:hover {
-  background: rgba(37, 185, 154, 0.75);
-  transition: all 0.2s ease;
+/* #todo:not(.complete-fill):hover svg {
+  background: red;
 } */
+
+/* #todo svg:not(.complete-fill) {
+  background: rgba(37, 185, 154, 0.5)
+} */
+
+/* ul.todo #todo li.buttons button.complete svg.fill {
+  fill: #fff;
+} */
+
+/* ul.done#completed .buttons button.complete svg {
+  background: #28b79a;
+}
 
 ul.todo#completed .buttons button.complete svg.fill {
-  /* background: #28b79a; */
+  background: #28b79a;
   fill: #fff;
 }
 
-/* ul.todo#completed .buttons button.complete svg.fill:hover {
+ul.done#completed .buttons button.complete svg.fill {
+  background: red;
   fill: #fff;
-} */
+}
 
 ul.todo:not(#completed) .buttons button.complete svg.fill:hover {
   background: #28b79a;
   fill: #fff;
-}
+} */
+
+
+
 
 .show {
   background: #28b79a;
   fill: #fff;
 }
 
-/* 
-.remove {
-  fill: #c0cecb;
+.done {
+  width: 100%;
+  height: 200px;
+  border: 3px solid red;
 }
-
-.remove:hover {
-  fill: #e85656;
-}
-.complete {
-  fill: #25b99a;
-}
-/* .complete:hover {
-  *fill: red;
-} */
