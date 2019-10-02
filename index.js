@@ -38,29 +38,38 @@ function removeItem() {
 }
 
 function completedItem() {
-  console.log("Hello!");
-  let items = this.parentNode.parentNode;
-  let parent = items.parentNode;
-  let id = parent.id;
-  console.log("id =", id);
-
-  let target =
-    id === "todo"
-      ? document.getElementById("completed")
-      : document.getElementById("todo");
-
-  console.log("target", target);
-
-  parent.removeChild(items);
-  parent.insertBefore(items, target.childNodes[0]);
+  let doneList = this.parentNode.parentNode;
+  let parent = doneList.childNodes[0];
+  // parent.style.textDecoration = "line-through";
+  if ((parent.style.textDecoration = "none")) {
+    parent.style.textDecoration = "line-through";
+  } else {
+    parent.style.textDecoration = "none";
+  }
 }
+
+// function revertChange() {
+//   console.log("Done");
+//   let doneList = this.parentNode.parentNode;
+//   let parent = doneList.childNodes[0];
+
+//   if ((parent.style.textDecoration = "line-through")) {
+//     parent.style.textDecoration = "none";
+//   } else {
+//     parent.style.textDecoration = "line-through";
+//   }
+// }
 
 function addtodoList(text) {
   console.log("text 43=", text);
   let list = document.getElementById("todo");
 
   let items = document.createElement("li");
-  items.innerText = text;
+  // items.innerText = text;
+
+  let p = document.createElement("p");
+  p.innerText = text;
+  console.log("p", p);
 
   let buttons = document.createElement("div");
   buttons.classList.add("buttons");
@@ -77,6 +86,7 @@ function addtodoList(text) {
 
   buttons.appendChild(remove);
   buttons.appendChild(complete);
+  items.appendChild(p);
   items.appendChild(buttons);
 
   list.appendChild(items);
